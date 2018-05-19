@@ -721,10 +721,6 @@ static void
 drawchildren(const NODE *n) /* Draw all children of n. */
 {
     draw(n->c1);
-    if (n->t == HORIZONTAL)
-        mvvline(n->y, n->x + n->w / 2, ACS_VLINE, n->h);
-    else
-        mvhline(n->y + n->h / 2, n->x, ACS_HLINE, n->w);
     wnoutrefresh(stdscr);
     draw(n->c2);
 }
