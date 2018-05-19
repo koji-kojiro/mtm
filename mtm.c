@@ -520,6 +520,7 @@ updatetitle(void) /* update the current title */
     wbkgd(titlewin, ' ' | COLOR_PAIR(getpair(fg, titlecolor)));
     wclear(titlewin);
     wattrset(titlewin, COLOR_PAIR(getpair(fg, titlecolor)));
+    wattrset(titlewin, A_BOLD);
     mvwaddstr(titlewin, 0, 0, status);
     waddwstr(titlewin, L" | ");
     waddwstr(titlewin, focused->title);
