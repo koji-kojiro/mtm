@@ -497,7 +497,7 @@ updatestatus(void) /* update the status portion of the title bar */
     char buf[MAXTITLE + 1] = {0};
 
     if (statusfile && time(NULL) > statustimer){
-        FILE *f = fopen(statusfile, "r");
+        FILE *f = popen(statusfile, "r");
         if (!f)
             return;
 
@@ -505,7 +505,7 @@ updatestatus(void) /* update the status portion of the title bar */
             strncpy(buf, "mtm", MAXTITLE);
 
         strncpy(status, buf, MAXTITLE);
-        fclose(f);
+        pclose(f);
         statustimer = time(NULL) + statusinterval;
         updatetitle();
     }
